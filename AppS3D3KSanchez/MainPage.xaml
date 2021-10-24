@@ -5,20 +5,59 @@
 
     <StackLayout>
         <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+            <Label Text="Sistema de Calificaciones UISRAEL" HorizontalTextAlignment="Center" TextColor="White" FontSize="16"/>
         </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Nota Seguimiento 1:" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/>
+            <Entry x:Name="txtNotaUno" Keyboard="Numeric" Grid.Row="0" Grid.Column="1" FontSize="Small" HorizontalTextAlignment="Center" MaxLength="2" />
+
+            <Label Text="Nota Examen 1:" Grid.Row="1" Grid.Column="0" FontAttributes="Bold"/>
+            <Entry x:Name="txtExamenUno" Keyboard="Numeric" Grid.Row="1" Grid.Column="1" FontSize="Small" HorizontalTextAlignment="Center" MaxLength="2" />
+
+            <Label Text="Nota Parcial 1 es:" Grid.Row="2" Grid.Column="0" FontAttributes="Bold"/>
+            <Label x:Name="txtParcialUno" Grid.Row="2" Grid.Column="1" FontSize="Small" HorizontalTextAlignment="Center"/>
+
+
+            <Label Text="Nota Seguimiento 2:" Grid.Row="4" Grid.Column="0" FontAttributes="Bold"/>
+            <Entry x:Name="txtNotaDos" Keyboard="Numeric" Grid.Row="4" Grid.Column="1" FontSize="Small" HorizontalTextAlignment="Center" MaxLength="2" />
+
+            <Label Text="Nota Examen 2:" Grid.Row="5" Grid.Column="0" FontAttributes="Bold"/>
+            <Entry x:Name="txtExamenDos" Keyboard="Numeric" Grid.Row="5" Grid.Column="1" FontSize="Small" HorizontalTextAlignment="Center" MaxLength="2" />
+
+            <Label Text="Nota Parcial 2 es:" Grid.Row="6" Grid.Column="0" FontAttributes="Bold"/>
+            <Label x:Name="txtParcialDos" Grid.Row="6" Grid.Column="1" FontSize="Small" HorizontalTextAlignment="Center"/>
+
+            <Label Text="Nota Final es:" Grid.Row="7" Grid.Column="0" FontAttributes="Bold"/>
+            <Label x:Name="txtNotaFinal" Grid.Row="7" Grid.Column="1" FontSize="Small" HorizontalTextAlignment="Center"/>
+
+            <Label Text="Estado es:" Grid.Row="8" Grid.Column="0" FontAttributes="Bold"/>
+            <Label x:Name="txtEstado" Grid.Row="8" Grid.Column="1" FontSize="Small" HorizontalTextAlignment="Center"/>
+            
+        </Grid>
+    
+        <Button x:Name="btnCalcular" Text="Calcular" Clicked="btnCalcular_Clicked" BackgroundColor="#1F82F0" FontAttributes="Bold" WidthRequest="100" HorizontalOptions="Center"/>
+
+
     </StackLayout>
 
 </ContentPage>
