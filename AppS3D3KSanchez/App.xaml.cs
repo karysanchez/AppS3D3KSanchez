@@ -10,7 +10,8 @@ namespace AppS3D3KSanchez
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            //Navegación entre ventanas
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

@@ -15,54 +15,37 @@ namespace AppS3D3KSanchez
             InitializeComponent();
         }
 
-        private void btnCalcular_Clicked(object sender, EventArgs e)
+        private async void btnAcceder_Clicked(object sender, EventArgs e)
         {
             try
             {
                 //Variables de almacenamiento
-                double notaUno = Convert.ToDouble(txtNotaUno.Text);
-                double examenUno = Convert.ToDouble(txtExamenUno.Text);
+                string usuario = txtUsuario.Text;
+                string clave = txtClave.Text;
 
-                double notaDos = Convert.ToDouble(txtNotaDos.Text);
-                double examenDos = Convert.ToDouble(txtExamenDos.Text);
-
-                //Operaciones a calcular
-                if (notaUno < 0.1 || notaUno > 10 || notaDos < 0.1 || notaDos > 10 || examenUno < 0.1 || examenUno > 10 || examenDos < 0.1 || examenDos > 10)
+                //Verificando ingreso de datos no sean nulos, ni vacios
+                if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(clave))
                 {
-                    DisplayAlert("IMPORTANTE", "Los valores de las notas NO deben ser menor a 0.1, NI mayor a 10", "OK");
+                    await DisplayAlert("IMPORTANTE", "Usuario y clave son requeridos", "ok");
                 }
                 else
                 {
-                    double notaParcialUno = (notaUno * 0.3) + (examenUno * 0.2);
-                    double notaParcialDos = (notaDos * 0.3) + (examenDos * 0.2);
-
-                    double notaFinal = notaParcialUno + notaParcialDos;
-
-                    //Visualizar resultado operaciones
-                    txtParcialUno.Text = notaParcialUno.ToString();
-                    txtParcialDos.Text = notaParcialDos.ToString();
-                    txtNotaFinal.Text = notaFinal.ToString();
-
-                    //Condiciones de estado
-
-                    if (notaFinal >= 7)
+                    //validando valores de conexion
+                    if (usuario.Equals("estudiante2021") && clave.Equals("uisrael2021"))
                     {
-                        txtEstado.Text = "APROBADO";
-                    }
-                    else if (notaFinal >= 5 && notaFinal <= 6.9)
-                    {
-                        txtEstado.Text = "COMPLEMENTARIO";
+                        //Presentara segunda pantalla 
+                        await Navigation.PushAsync(new ViewDos(usuario));
                     }
                     else
                     {
-                        txtEstado.Text = "REPROBADO";
+                        await DisplayAlert("Mensaje de Error:", "Usuario y/o clave incorrectos", "ok");
                     }
-                }
 
+                }
             }
             catch (Exception ex)
             {
-                DisplayAlert("Mensaje de alerta", ex.Message, "ok");
+                await DisplayAlert("Mensaje de alerta", ex.Message, "ok");
             }
         }
     }
